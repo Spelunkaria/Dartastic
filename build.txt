@@ -1,0 +1,3 @@
+displayName = Dartastic!
+author = Spelunkaria & GalaxiMadi
+version = 0.1

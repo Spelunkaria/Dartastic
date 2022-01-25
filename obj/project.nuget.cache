@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "4wU/EGl7U9sc4AyZx5naSTvqxvcy+X5SzynZjO/BMUcYawxB4W/yveAH/K8TRuG0O4UY6y15v7ZcLb7j+iaehQ==",
+  "success": true,
+  "projectFilePath": "c:\\Users\\gambi\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\Dartastic\\Dartastic.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\gambi\\.nuget\\packages\\tmodloader.codeassist\\0.1.3\\tmodloader.codeassist.0.1.3.nupkg.sha512"
+  ],
+  "logs": []
+}
