@@ -23,5 +23,14 @@ namespace Dartastic.Items.DartClass.DartItems{
             item.crit = 4;
             item.value = 50;
         }
+
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(ModContent.ItemType<DartClass.DartItems.DartItem>(), 80);
+            recipe.AddIngredient(ItemID.FallenStar, 1);
+            recipe.SetResult(this, 80);
+            recipe.AddRecipe();
+        }
     }
 }
