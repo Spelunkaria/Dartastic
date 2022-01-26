@@ -39,11 +39,21 @@ namespace Dartastic.Items.DartClass.DartWeapons.DartPre{
             recipe.AddRecipe();
         }
 
+        public override Vector2? HoldoutOffset()
+        {
+            return new Vector2(-5, 0);
+        }
+
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
             if(type == ModContent.ProjectileType<Projectiles.Dart>()){
 
                 type = ProjectileID.PoisonDartBlowgun;
+            }
+            Vector2 muzzleOffset = Vector2.Normalize(new Vector2(speedX, speedY)) * 2f;
+            if (Collision.CanHit(position, 0, 0, position + muzzleOffset, 0, 0))
+            {
+                position += muzzleOffset;
             }
             return true;
         }

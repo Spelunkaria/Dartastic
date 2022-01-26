@@ -45,6 +45,11 @@ namespace Dartastic.Items.DartClass.DartWeapons.DartHard{
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
             Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("DemonThorn"), damage, knockBack, player.whoAmI);
+            Vector2 muzzleOffset = Vector2.Normalize(new Vector2(speedX, speedY)) * 90f;
+            if (Collision.CanHit(position, 0, 0, position + muzzleOffset, 0, 0))
+            {
+                position += muzzleOffset;
+            }
             return true;
 		}
     }

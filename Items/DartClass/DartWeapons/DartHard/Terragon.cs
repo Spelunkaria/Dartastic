@@ -42,6 +42,11 @@ namespace Dartastic.Items.DartClass.DartWeapons.DartHard{
         }
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
+            Vector2 muzzleOffset = Vector2.Normalize(new Vector2(speedX, speedY)) * 100f;
+            if (Collision.CanHit(position, 0, 0, position + muzzleOffset, 0, 0))
+            {
+                position += muzzleOffset;
+            }
             Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ModContent.ProjectileType<Projectiles.TerraDart>(), damage, knockBack, player.whoAmI);
             int numberProjectiles = 2;
 			for (int i = 0; i < numberProjectiles; i++)
@@ -51,5 +56,10 @@ namespace Dartastic.Items.DartClass.DartWeapons.DartHard{
 			}
             return true;
 		}
+
+        public override Vector2? HoldoutOffset()
+        {
+            return new Vector2(3, 3);
+        }
     }
 }

@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Microsoft.Xna.Framework;
 
 namespace Dartastic.Items.DartClass.DartWeapons.DartHard{
 
@@ -33,6 +34,21 @@ namespace Dartastic.Items.DartClass.DartWeapons.DartHard{
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this);
             recipe.AddRecipe();
+        }
+
+        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        {
+            Vector2 muzzleOffset = Vector2.Normalize(new Vector2(speedX, speedY)) * 25f;
+            if (Collision.CanHit(position, 0, 0, position + muzzleOffset, 0, 0))
+            {
+                position += muzzleOffset;
+            }
+            return true;
+        }
+
+        public override Vector2? HoldoutOffset()
+        {
+            return new Vector2(3, 1);
         }
     }
 }

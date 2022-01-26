@@ -42,6 +42,11 @@ namespace Dartastic.Items.DartClass.DartWeapons.DartPre{
 			{
 				type = ModContent.ProjectileType<Projectiles.BoneDart>();
 			}
+            Vector2 muzzleOffset = Vector2.Normalize(new Vector2(speedX, speedY)) * 25f;
+            if (Collision.CanHit(position, 0, 0, position + muzzleOffset, 0, 0))
+            {
+                position += muzzleOffset;
+            }
 			return true;
         }
     }
